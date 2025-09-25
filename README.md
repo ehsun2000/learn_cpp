@@ -99,6 +99,33 @@ long getCPPStandard() {
 - `202002L` = C++20
 - `202302L` = C++23
 
+### 變數初始化練習
+實作了 `VariableAssignment.cpp`，展示各種變數初始化方法：
+
+**傳統初始化方式：**
+```cpp
+int copyInitialized = 5;      // 複製初始化
+int directInitialized(6);     // 直接初始化
+```
+
+**現代 C++11 清單初始化（推薦）：**
+```cpp
+int directListInitialized{5};    // 直接清單初始化（推薦）
+int copyListInitialized = {6};   // 複製清單初始化（較少使用）
+int valueInitialized{};          // 值初始化（初始化為 0）
+```
+
+**重要特性：**
+- **防止窄化轉換**：清單初始化會阻止資料遺失的轉換
+- **統一語法**：適用於所有類型的初始化
+- **明確意圖**：`{}` 明確表達初始化意圖
+
+**最佳實踐：**
+- 使用直接清單初始化 `int value{42};`
+- 避免未初始化變數
+- 臨時變數使用值初始化 `int temp{};`
+- C++17 可使用 `[[maybe_unused]]` 標記可能未使用的變數
+
 ## 重要學習心得
 
 ### 編譯器標準設定
