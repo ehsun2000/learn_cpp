@@ -14,6 +14,11 @@ all:
 # 通用編譯規則：執行檔名對應到 build/執行檔名
 $(TARGETS): %: $(BUILD_DIR)/%
 
+# 特殊規則：Preprocessor 需要編譯兩個檔案
+$(BUILD_DIR)/Preprocessor: Preprocessor.cpp Preprocessor2.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
 # 編譯規則：build/執行檔名 <- 原始碼.cpp  
 $(BUILD_DIR)/%: %.cpp
 	@mkdir -p $(BUILD_DIR)
